@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="game"
+            type="com.natania.gameproject.binding.LiveDataViewModel" />
+    </data>
+    <ScrollView
+        android:id="@+id/sv_game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".game.GameFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/game_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageGame"
+                android:layout_width="0dp"
+                android:layout_height="192dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/image"
+                android:src="@drawable/ic_lflewu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{game.currentQuestion.text}"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/imageGame"
+                app:layout_constraintStart_toStartOf="@+id/imageGame"
+                app:layout_constraintTop_toBottomOf="@+id/imageGame" />
+
+            <RadioGroup
+                android:id="@+id/rg_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_question"
+                app:layout_constraintStart_toStartOf="@+id/tv_question"
+                app:layout_constraintTop_toBottomOf="@+id/tv_question">
+
+                <RadioButton
+                    android:id="@+id/rb_first_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{game.answers[0]}"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_second_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{game.answers[1]}"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_third_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{game.answers[2]}"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_fourth_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{game.answers[3]}"
+                    android:textSize="18sp" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/submit"
+                app:layout_constraintEnd_toEndOf="@+id/rg_game"
+                app:layout_constraintStart_toStartOf="@+id/rg_game"
+                app:layout_constraintTop_toBottomOf="@+id/rg_game" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
+

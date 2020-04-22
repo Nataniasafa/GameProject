@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_view"
+    app:startDestination="@id/titleFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.natania.gameproject.TitleFragment"
+        android:label="TitleFragment"
+        tools:layout="@layout/fragment_title">
+        <action
+            android:id="@+id/action_titleFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.natania.gameproject.game.GameFragment"
+        android:label="GameFragment"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_gameFragment_to_endGameFragment"
+            app:destination="@id/endGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/endGameFragment"
+        android:name="com.natania.gameproject.endgame.EndGameFragment"
+        android:label="EndGameFragment"
+        tools:layout="@layout/fragment_end_game">
+       <argument
+        android:name="score"
+        app:argType="integer"
+        android:defaultValue="0"/>
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.natania.gameproject.AboutFragment"
+        android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.natania.gameproject.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.natania.gameproject.RulesFragment"
+        android:label="RulesFragment" />
+</navigation>

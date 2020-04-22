@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="binding"
+            type="com.natania.gameproject.binding.LiveDataViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/end_game_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".endgame.EndGameFragment">
+
+
+        <ImageView
+            android:id="@+id/imageEndGame"
+            android:layout_width="0dp"
+            android:layout_height="192dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_lflewu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/score"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/imageEndGame"
+            app:layout_constraintStart_toStartOf="@+id/imageEndGame"
+            app:layout_constraintTop_toBottomOf="@+id/imageEndGame" />
+
+        <TextView
+            android:id="@+id/tv_final_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/default_value"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageEndGame"
+            app:layout_constraintStart_toStartOf="@+id/imageEndGame"
+            app:layout_constraintTop_toBottomOf="@+id/tv_score" />
+
+        <ImageView
+            android:id="@+id/iv_like"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="75dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_like"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_final_score" />
+
+        <TextView
+            android:id="@+id/tv_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@{Integer.toString(binding.likes)}"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_like"
+            app:layout_constraintStart_toEndOf="@+id/iv_like"
+            app:layout_constraintTop_toTopOf="@+id/iv_like" />
+
+        <ImageView
+            android:id="@+id/iv_unlike"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="75dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_unlike"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_like"
+            app:layout_constraintStart_toEndOf="@+id/tv_like"
+            app:layout_constraintTop_toTopOf="@+id/tv_like" />
+
+        <TextView
+            android:id="@+id/tv_unlike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@{Integer.toString(binding.unlikes)}"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_unlike"
+            app:layout_constraintStart_toEndOf="@+id/iv_unlike"
+            app:layout_constraintTop_toTopOf="@+id/iv_unlike" />
+
+        <Button
+            android:id="@+id/btn_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/like"
+            app:layout_constraintEnd_toEndOf="@+id/tv_like"
+            app:layout_constraintStart_toStartOf="@+id/iv_like"
+            app:layout_constraintTop_toBottomOf="@+id/iv_like"
+            android:onClick="@{()-> binding.onLike()}"/>
+
+        <Button
+            android:id="@+id/btn_unlike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/unlike"
+            app:layout_constraintEnd_toEndOf="@+id/tv_unlike"
+            app:layout_constraintStart_toStartOf="@+id/iv_unlike"
+            app:layout_constraintTop_toBottomOf="@+id/iv_unlike"
+            android:onClick="@{()-> binding.onUnlike()}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
